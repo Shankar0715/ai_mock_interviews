@@ -2,6 +2,8 @@
 
 import { auth, db } from "@/firebase/admin";
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+
 
 // Session duration (1 week)
 const SESSION_DURATION = 60 * 60 * 24 * 7;
@@ -91,9 +93,26 @@ export async function signIn(params: SignInParams) {
 
 // Sign out user by clearing the session cookie
 export async function signOut() {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
 
-  cookieStore.delete("session");
+  // Remove cookies from server-side
+  cookieStore.set("session", "", { maxAge: -1, path: "/" });
+  cookieStore.set("authToken", "", { maxAge: -1, path: "/" });
+
+  // Create response that clears cookies from browser as well
+  const response = NextResponse.json({ success: true }, { status: 200 });
+
+  response.cookies.set("session", "", {
+    maxAge: -1,
+    path: "/",
+  });
+
+  response.cookies.set("authToken", "", {
+    maxAge: -1,
+    path: "/",
+  });
+
+  return response;
 }
 
 // Get current user from session cookie
@@ -130,3 +149,5 @@ export async function isAuthenticated() {
   const user = await getCurrentUser();
   return !!user;
 }
+
+
