@@ -13,7 +13,7 @@ const Layout = async ({ children }: { children: ReactNode }) => {
   return (
     <div className="root-layout">
       {/* Top Navigation Bar */}
-      <nav className="flex justify-between p-4 bg-black text-white">
+      <nav className="flex justify-between p-4 bg-black text-blue-500">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.svg" alt="MockMate Logo" width={38} height={32} />
           <h2 className="text-primary-100">PrepWise</h2>
