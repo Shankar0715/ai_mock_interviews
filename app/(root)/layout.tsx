@@ -13,10 +13,9 @@ const Layout = async ({ children }: { children: ReactNode }) => {
   return (
     <div className="root-layout">
       {/* Top Navigation Bar */}
-      <nav className="flex justify-between p-4 bg-black text-blue-500">
+      <nav className="flex justify-between p-4 bg-amber-100x` text-blue-500">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="MockMate Logo" width={38} height={32} />
-          <h2 className="text-primary-100">PrepWise</h2>
+          <Image src="/next.png" alt="MockMate Logo" width={190} height={50} />
         </Link>
 
         {/* Logout Button */}
