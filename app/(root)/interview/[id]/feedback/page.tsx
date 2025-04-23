@@ -36,9 +36,9 @@ const Feedback = async ({ params }: RouteParams) => {
           {/* Overall Impression */}
           <div className="flex flex-row gap-2 items-center">
             <Image src="/star.svg" width={22} height={22} alt="star" />
-            <p>
+            <p className="text-black">
               Overall Impression:{" "}
-              <span className="text-primary-200 font-bold">
+              <span className="text-black font-bold">
                 {feedback?.totalScore}
               </span>
               /100
@@ -48,7 +48,7 @@ const Feedback = async ({ params }: RouteParams) => {
           {/* Date */}
           <div className="flex flex-row gap-2">
             <Image src="/calendar.svg" width={22} height={22} alt="calendar" />
-            <p>
+            <p className="text-black">
               {feedback?.createdAt
                 ? dayjs(feedback.createdAt).format("MMM D, YYYY h:mm A")
                 : "N/A"}
@@ -59,17 +59,17 @@ const Feedback = async ({ params }: RouteParams) => {
 
       <hr />
 
-      <p>{feedback?.finalAssessment}</p>
+      <p className="text-black">{feedback?.finalAssessment}</p>
 
       {/* Interview Breakdown */}
       <div className="flex flex-col gap-4">
         <h2>Breakdown of the Interview:</h2>
         {feedback?.categoryScores?.map((category, index) => (
           <div key={index}>
-            <p className="font-bold">
+            <p className=" text-black font-bold">
               {index + 1}. {category.name} ({category.score}/100)
             </p>
-            <p>{category.comment}</p>
+            <p className="text-black">{category.comment}</p>
           </div>
         ))}
       </div>
@@ -78,7 +78,7 @@ const Feedback = async ({ params }: RouteParams) => {
         <h3>Strengths</h3>
         <ul>
           {feedback?.strengths?.map((strength, index) => (
-            <li key={index}>{strength}</li>
+            <li className="text-black" key={index}>{strength}</li>
           ))}
         </ul>
       </div>
@@ -87,7 +87,7 @@ const Feedback = async ({ params }: RouteParams) => {
         <h3>Areas for Improvement</h3>
         <ul>
           {feedback?.areasForImprovement?.map((area, index) => (
-            <li key={index}>{area}</li>
+            <li className="text-black" key={index}>{area}</li>
           ))}
         </ul>
       </div>

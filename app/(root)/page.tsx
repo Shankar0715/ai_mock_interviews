@@ -67,7 +67,7 @@ async function Home() {
               />
             ))
           ) : (
-            <p>You haven&apos;t taken any interviews yet</p>
+            <p className="text-black">You haven&apos;t taken any interviews yet</p>
           )}
         </div>
       </section>
