@@ -185,7 +185,8 @@ const Agent = ({
               key={lastMessage}
               className={cn(
                 "transition-opacity duration-500 opacity-0",
-                "animate-fadeIn opacity-100"
+                "animate-fadeIn opacity-100",
+                "text-black" // added this line
               )}
             >
               {lastMessage}
